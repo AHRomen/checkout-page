@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Pages</title>
+    <link rel="stylesheet" href="./assets/css/plugin.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div class="checkout-container">
+        <div class="main-body-wraper">
+            <!-- Shipping Details -->
+            <div class="left-part-wraper">
+                <div class="form-section">
+                    <h2 class="section-title2 mb-40">Shipping Details</h2>
+                    
+                    <form id="checkoutForm" class="checkout-form">
+                        <!-- Full Name -->
+                        <div class="input-wraper">
+                            <label class="custom-label" for="fullName">Full Name</label>
+                            <input type="text" class="custom-input w-100" id="fullName" placeholder="Full Name" value="John Doe">
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="input-wraper">
+                            <label class="custom-label">Phone Number</label>
+                            <div class="phone-input custom-input">
+                                <select class="country-code">
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                </select>
+                                <input type="tel" class="tel-number" placeholder="8733223982" value="8733223982">
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="input-wraper">
+                            <label for="email" class="custom-label">Email</label>
+                            <input type="email" class="custom-input w-100" id="email" placeholder="Email" value="johndoe@example.com">
+                        </div>
+
+                        <!-- Address -->
+                        <div class="address-wraper">
+                            <label class="custom-label">Address</label>
+                            <div class="address-input-wraper">
+                                <div class="address-slot-wraper">
+                                    <input type="text" class="custom-input w-100" placeholder="Sheikh Al Majhar St.">
+                                </div>
+                                <div class="address-slot-wraper">
+                                    <input type="text" class="custom-input w-100" placeholder="Address line 2">
+                                </div>
+                                <div class="address-slot-wraper">
+                                    <select class="custom-input w-100">
+                                        <option>United Arab Emirates</option>
+                                        <option>Saudi Arabia</option>
+                                        <option>Qatar</option>
+                                    </select>
+                                </div>
+                                <div class="address-slot-wraper">
+                                    <select class="custom-input w-100">
+                                        <option>Select state</option>
+                                        <option>Dubai</option>
+                                        <option>Abu Dhabi</option>
+                                        <option>Sharjah</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="row gy-2 gx-0 mt-2">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="City">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Pin code">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Note -->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="orderNote" style="height: 100px" placeholder="Write your message..."></textarea>
+                            <label for="orderNote">Order Note</label>
+                        </div>
+
+                        <!-- Save Address -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="saveAddress">
+                            <label class="form-check-label" for="saveAddress">
+                                Save this address
+                                <small class="text-muted d-block">Speed up future checkouts by saving your address</small>
+                            </label>
+                        </div>
+
+                        <!-- Address Label -->
+                        <div class="address-label" onclick="toggleAddressLabel()">
+                            <i class="fas fa-plus me-2"></i>Add a label e.g Home
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="right-part-wraper">
+                <div class="form-section right-section">
+                    <h2 class="section-title2 mb-40">Order Summary</h2>
+                    
+                    <!-- Product Items -->
+                    <div class="mb-4">
+                        <div class="product-item">
+                            <div class="product-image">🥛</div>
+                            <div class="product-details">
+                                <div class="product-name">Diploma Milk Powder</div>
+                                <div class="product-specs">
+                                    <span class="me-3">WEIGHT: 1kg</span>
+                                    <span>COLOR: YELLOW</span>
+                                </div>
+                            </div>
+                            <div class="product-price">AED 240.99</div>
+                        </div>
+                        
+                        <div class="product-item">
+                            <div class="product-image">🥛</div>
+                            <div class="product-details">
+                                <div class="product-name">Diploma Milk Powder</div>
+                                <div class="product-specs">
+                                    <span class="me-3">WEIGHT: 1kg</span>
+                                    <span>COLOR: YELLOW</span>
+                                </div>
+                            </div>
+                            <div class="product-price">AED 240.99</div>
+                        </div>
+                        
+                        <div class="product-item">
+                            <div class="product-image">🥛</div>
+                            <div class="product-details">
+                                <div class="product-name">Diploma Milk Powder</div>
+                                <div class="product-specs">
+                                    <span class="me-3">WEIGHT: 1kg</span>
+                                    <span>COLOR: YELLOW</span>
+                                </div>
+                            </div>
+                            <div class="product-price">AED 240.99</div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Code -->
+                    <div class="coupon-section">
+                        <input type="text" class="form-control" placeholder="Coupon code" id="couponCode">
+                        <button class="btn btn-outline-success" onclick="applyCoupon()">Apply</button>
+                    </div>
+
+                    <!-- Summary -->
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>680</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Discount</span>
+                            <span>- AED20</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span>(+0%) AED0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping Cost</span>
+                            <span>(-0%) AED29.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>709</span>
+                        </div>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="terms-checkbox">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="termsAgree" required>
+                            <label class="form-check-label" for="termsAgree">
+                                I have read and agree to the website <a href="#" class="terms-link">terms & conditions</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pay Button -->
+                    <button class="btn btn-primary w-100" onclick="processPayment()" id="payButton" disabled>
+                        Pay AED709
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/plugin.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
